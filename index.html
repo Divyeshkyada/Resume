@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divyeh-Kyada</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <style>
+        
+        #image-container {
+            text-align: center;
+            box-shadow: 0 0 60px black; 
+            transition: transform 1.3s ease-in-out;
+           
+        }
+       
+
+     #contact-form {
+            width: 50%;
+            margin: 50px auto;
+            background-color:rgb(52, 50, 50);
+            padding: 20px;
+            box-shadow: 0 0 40px black;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #edu {
+            width: 100%;
+            margin: 50px auto;
+            background-color: rgb(52, 50, 50);
+            padding: 10px;
+            box-shadow: 0 0 60px black;
+        }
+
+        #submit-button {
+            background-color: black;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: black;
+        }
+
+        #submit-button:hover {
+            background-color: #555;
+        }
+        #projects-section {
+            width: 80%;
+            margin: 50px auto;
+            background-color: rgb(52, 50, 50);
+            padding: 20px;
+            box-shadow: 0 0 60px black;
+        }
+        #portfolio {
+            width: 80%;
+            margin: 50px auto;
+            background-color: rgb(52, 50, 50);
+            padding: 20px;
+            box-shadow: 0 0 60px black;
+        }
+        .certificate {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+        }
+
+        .certificate h3 {
+            color: white;
+        }
+
+        .certificate p {
+            color: lightblue;
+        }
+        .tabs {
+ 
+        background-color:transparent;
+        border-radius: 5px;
+        overflow: hidden;
+        
+        width: 110%;
+        padding: 20px;
+        align-items: center;
+        
+        }
+
+        #tabs-nav {
+            margin:  20px;
+        list-style: none;
+        margin: 0;
+        padding: 5px;
+        overflow: auto;
+        }
+
+        #tabs-nav li {
+            display: inline-block;
+        
+        font-weight: bold;
+        margin-right: 2px;
+        padding: 8px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: rgb(52, 50, 50);
+        align-items: center;
+        margin-left: 50px;
+        
+        }
+
+        #tabs-nav li:hover,
+        #tabs-nav li.active {
+        background-color: rgb(131, 131, 184);
+        }
+
+        #tabs-nav li a {
+        text-decoration: none;
+        color: #FFF;    
+        box-shadow: 20px 90px 20px 95px  rgb(50, 51, 52) ;
+        }
+
+        .tab-content {
+        padding: 10px;
+        align-items: center;
+        transition: opacity 1s ease-in-out;
+        background-color: transparent;
+        display: none;
+        color: white;
+        }
+
+        #tabs-content .tab-content:first-child {
+        display: block;
+        }
+
+        
+    </style>
+    <!-- JAVASCRIPT START -->
+    <!-- loader -->
+    <script>
+        // Wait for the DOM to be ready
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the loading element
+            var loader = document.getElementById("loader");
+            // Get the body element
+            var body = document.body;
+
+            // Set a timeout to add a class that hides the loader and shows the black background after 250ms
+            setTimeout(function () {
+                loader.classList.add("hidden");
+                body.style.overflow = "hiddin"; // Show the body content
+            }, 250);
+        });
+    </script>
+    <!-- loader End -->
+    <!-- Tonggled data -->
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Get all tabs and tab contents
+            var tabs = document.querySelectorAll('#tabs-nav li');
+            var tabContents = document.querySelectorAll('.tab-content');
+
+            // Show the first tab and hide the rest
+            tabs[0].classList.add('active');
+            tabContents.forEach(function (tabContent) {
+                tabContent.style.display = 'none';
+            });
+            tabContents[0].style.display = 'block';
+
+            // Click function for tabs
+            tabs.forEach(function (tab, index) {
+                tab.addEventListener('click', function () {
+                    // Remove 'active' class from all tabs
+                    tabs.forEach(function (t) {
+                        t.classList.remove('active');
+                    });
+
+                    // Add 'active' class to the clicked tab
+                    this.classList.add('active');
+
+                    // Hide all tab contents
+                    tabContents.forEach(function (tabContent) {
+                        tabContent.style.display = 'none';
+                    });
+
+                    // Show the content of the clicked tab
+                    tabContents[index].style.display = 'block';
+
+                    // Update text content based on your requirements
+                    var newTextContent = "New text content for " + this.textContent;
+                    tabContents[index].querySelector('p').textContent = newTextContent;
+                });
+            });
+        });
+    </script>
+    <!-- Tongled data end -->
+    
+    
+    
+    <!-- JAVASCRIPT END -->
+    
+</head>
+<body class="dark">
+   
+   
+     <!-- Navbar Start -->
+     <header id="header">
+       
+        <nav class="naavbar navbar-expand-lg navbar-light bg-light">
+           
+            
+            <!-- <div class="container-fluid logo"> -->
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- <img src="img/bg.jpg" alt=""> -->
+
+                <div class="container-fluid p-0 navbar-collapse justify-content-top gap-4 " id="navbarSupportedContent">
+                <div class="d-flex align-items-start">
+                    <div class="loading"  id="loader">Loading&#8230;</div>
+                    <div class="col-md-3 justify-content-start">
+                    <img src="img/logo.png" alt="Logo" class="logo"></div></div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-4 justify-content-end">
+                    <ul class="navbar-nav mb-1 mb-lg-0 gap-3">
+                        <li class="nav-item navi">
+                            <a class="nav-link active" aria-current="page" href="index.html"><b>Home</b>  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about"><b>About Me  </b></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#projects"><b>Projects </b> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact-form"><b>Contact</b>  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blog"><b>My_Blogs</b>  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#work"><b>My_Works</b>  </a>
+                        </li>
+                    </ul></div>
+                    <form class="d-flex">
+                        <a class="nav-link butn1" href=" https://wa.me/9662312269">    <img src="img/wa.svg" alt=""></a>
+                    </form>
+                </div>
+
+            <!-- </div> -->
+            <br><br>
+       
+    <div class="container-fluid">
+        
+        <div class="t">
+            <i> <h1><b><p>HELLO,</p></b></h1></i>
+     
+             </div>
+        <div class="text text-center">
+       <i><h1>I Am <b>Divyesh Kayada.</b></h1></i>
+
+        </div>
+        <div class="text2 text-center">
+            <i><h1>I Am a<b> ReactJS Devloper.</b></h1></i>
+    
+        </div>
+        <div class="text3 text-center">
+            <i><h1>I Am a<b> Java Devloper.</b></h1></i>
+    
+        </div>
+        
+    </div>
+    <svg x="0px" y="20px" viewBox="0 186.5 1920 113.5" style="color: rgb(52, 50, 50);">
+        <polygon style="fill: rgb(52, 50, 50);opacity: 0.6;" points="-30,300 355.167,210.5 1432.5,290 1920,198.5 1920,400"></polygon>
+    </svg>
+</nav>
+    <!-- NAV-BAR END -->
+    </div>
+    </header>
+    <!-- HEADER END -->
+    <!-- MY PROFILE START -->
+    <section>
+        <div class="container my-5 p-0 m-6">
+            <div class="d-flex">
+                <div class="col-sm-6 temp p-5 ">
+                    <div class="container p-5 justify-content-center" id="about">
+                        <div>
+                            
+                            <h1 style="color: white;">
+                                Hello,I am <span class="name">Divyesh</span>
+                            </h1>
+                            <p style="color: beige;">I'm a dedicated software developer currently pursuing my Master of Computer Applications (MCA). I am passionate about creating efficient and innovative solutions to real-world problems through code.
+
+
+                            </p>
+                        </div>
+                        <div class="ml-5">
+                            <img src="img/mail.svg" alt="mail-plus">&nbsp;&nbsp;
+                            <a href="mailto:kyadadivyesh4@gmail.com">kyadadivyesh4@gmail.com</a>
+                        </div>
+                        <br>
+                        <div class="ml-5">
+                            <p style="color: white;"> <img src="img/message-circle-code.svg" alt="phone"></img>
+                            | <img src="img/phone-call.svg" alt="whatsapp"></img>&nbsp;
+                            +91-9662312268</p>
+                    
+                        </div>
+                        
+                        <div class="ml-5">
+                            <img src="img/linkedin.svg" alt="phone"></img>&nbsp;&nbsp;
+                            <a href="http://www.linkedin.com/in/jainildodhiya2323">https://www.linkedin.com/in/divyeshkyada007</a>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <img src="img/divyesh.jpg" style="border-radius: 100px;" height="500px" width="450px">
+                </div>
+            </div>
+        </div>
+    </section><br><hr style="color: darkgray"><br>
+    <!-- MY PROFILE END -->
+    <!-- SKILL START -->
+    <section>
+        <div class="container-fluid align-items-center">
+            <p style="color: whitesmoke;">HTML</p>
+            <div class="con">
+                <div class="skills html">90%</div>
+            </div>
+    
+            <p style="color: whitesmoke;">CSS</p>
+            <div class="con">
+                <div class="skills css">80%</div>
+            </div>
+    
+            <p style="color: whitesmoke;">JavaScript</p>
+            <div class="con">
+                <div class="skills js">65%</div>
+            </div>
+    
+            <p style="color: whitesmoke;">PHP</p>
+            <div class="con">
+                <div class="skills php">60%</div>
+            </div>
+        </div>
+    </section><br> <hr style="color: darkgray">
+    <br>
+    <!-- SKILL END -->
+   <!-- Educations START -->
+    
+    <section>
+        <div class="container">
+            <div id="edu">
+            <div class="row">
+                
+                <div class="section-head text-center col-sm-12">
+                    <h1 class="hov1" style="color: aliceblue; max-width: 50px 50px;">Educations</h1>
+                   <!--  <h6>Awesome Featruse</h6> -->
+                </div>
+                </div>
+                <hr>
+                <div class="row">
+                <div class="d-flex align-items-center gap-4">
+
+                <div class="col-md-4" style="color: lightblue;">
+                        <img src="img/graduation-cap.svg" alt="" style="height: 30px;">
+                       <b> <h6>MCA</h6></b>
+                       <p>> LJ University</p>
+                        <p>> CGPA :- 7.88/10</p>
+                        <p>
+                           >  Passing Year:- 2024
+                            </p>
+                    </div>
+                
+                <div class="col-md-4 " style="color: lightblue;">
+                    <img src="img/book-open-text.svg" alt=""  style="height: 30px;">
+                       <b> <h6>BCA</h6></b>
+                       <p>> Parekh Collage Of Computer Science</p>
+                        <p>> First Class(2022)
+                        </p>
+                        <p>
+                           >  Aggregate percentage:- 69.47%.
+
+                            </p>
+                    </div>
+               
+                <div class="col-md-4"  style="color: lightblue;">
+                   <img src="img/school.svg" alt=" "  style="height: 30px;">
+                        <h6>Higher Schooling(S.S.C/H.S.C)</h6>
+                        <p>> Saint Thomas High School ,Mahuva</p>
+                        <p>> 63.16%(S.S.C).
+                        </p>
+                        <p>
+                           >   63.36%(H.H.C).
+
+                            </p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    
+    </section><br><hr style="color: darkgray"><br>
+<!--     Educations END -->
+<!-- PROJECTS -->
+    <section>
+        <div class="align-items-center" id="projects">
+            
+            <div id="projects-section">
+                <div class="project">
+                    <div class="section-head text-center col-sm-12">
+                        <h1 style="color: aliceblue; max-width: 50px 50px;">My_Projects</h1>
+                       <!--  <h6>Awesome Featruse</h6> -->
+                    </div><br><hr>
+                    <h3>1. Water Billing System</h3>
+                    <p> > Desktop Based Application using VB.NET and
+                          MS Access DB.</p>
+                      <p>  > Done During Graduation this Application is
+                          capable of Generating Bill as per the
+                          Subscription done by a Customer.</p></p>
+                    <ul class="technologies-list">
+                        <li style="color: aqua;">Technologies Used :- </li>
+                        <li>VB.Net</li>
+                        <li>MS_ACESS</li>
+                       
+                    </ul>
+                </div>
+        
+                <div class="project">
+                    <h3>2. FlowerShop System</h3>
+                    <p>> Flowershop System(Team Project) was based
+                        on PHP Technology(Backend) Carrying MySql
+                        Database,HTML,CSS,JavaScript.
+                        Done During PG this System has home page
+                        where the number of a categorized flower is
+                        seen. For the birthday, sorry, wedding, sympathy,
+                        etc.</p><p>
+                        > In this system, their category is also divided
+                        into the price of the flower for which admin has
+                        System Access.
+                        .</p>
+                    <ul class="technologies-list">
+                        <li style="color: aqua;">Technologies Used :- </li>
+                        <li>PHP</li>
+                        <li>JavaScript</li>
+                        <li>MySQL</li>
+                        <li>JQuery</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>3. Hospital Managment System</h3>
+                    <p>> Hospital Management System(Team Project) is
+                        based on PHP Technology with MySql Database.
+                        </p><p>
+                        > Currently in working phase(PG FinalProject) this
+                        project includes registration of patients, storing
+                        their details into the system. The software has
+                        the facility to give a unique id for every patient
+                        and stores the details of every patient.
+                        
+                        .</p>
+                    <ul class="technologies-list">
+                        <li style="color: aqua;">Technologies Used :- </li>
+                        <li>PHP</li>
+                        <li>JavaScript</li>
+                        <li>MySQL</li>
+                        <li>JQuery</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>4. . Live Web-Site</h3>
+                    <p>>A web-site for a reputed visa company based on
+                        Ahmedabad known as "Shree Visa Advisor".
+                        
+                        </p><p>
+                        > Refer at:-<a href="shreevisaadvisor.com"> shreevisaadvisor.com</a>
+                        
+                        .</p>
+                    <ul class="technologies-list">
+                        <li style="color: aqua;">Technologies Used :- </li>
+                        <li>WordPress</li>
+                        <li>PHP</li>
+                        <li>JavaScript</li>
+                        <li>MySQL</li>
+                        <li>JQuery</li>
+                    </ul>
+                </div>
+        
+        
+                
+        
+            </div>
+        </div>
+
+    </section><br><hr style="color: darkgray">
+    <!-- PROJECTS END -->
+    <!-- Certifications START -->
+    <br>
+    <section>
+        <div class="align-items-center">
+            <div id="portfolio">
+                <div class="certificate">
+                    <div class="section-head text-center col-sm-12">
+                        <h1 style="color: aliceblue; max-width: 50px 50px;">Certifications</h1>
+                       <!--  <h6>Awesome Featruse</h6> -->
+                    </div><br><hr>
+                    <h3>Google SEO Fundamentals</h3>
+                    <p>University of California</p>
+                </div>
+        
+                <div class="certificate">
+                    <h3>The Power of Team Culture</h3>
+                    <p>University of Pennsylvania</p>
+                </div>
+        
+                <div class="certificate">
+                    <h3>Python Programming</h3>
+                    <p>University of Michigan</p>
+                </div>
+        
+                <div class="certificate">
+                    <h3>ASP.NET Core Foundation</h3>
+                    <p>Boord Infinity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Certifications END -->
+    <!-- REFERENCE START -->
+    <br>
+    <hr style="color: darkgray"><br>
+    
+    <section>
+        <div class="align-items-center" id="contacts"> 
+            <div id="portfolio">
+                <div class="reference">
+                    <div class="section-head text-center col-sm-12">
+                        <h1 style="color: aliceblue; max-width: 50px 50px;">References</h1>
+                       <!--  <h6>Awesome Featruse</h6> -->
+                    </div><br><hr>
+                    <h3>Salman Bheryani</h3>
+                    <p>[Owner ARMS Studios-Mahuva]</p>
+                    <p>Mail: <a href="mailto:armsmahuva@gmail.com">armsmahuva@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- REFERENCE END -->
+    <!-- WORKS START -->
+    <br><hr style="color: darkgray"><br>
+    <center>
+        <h1 id="work" style="color: white;"><b>MY WORKS</b></h1></center>
+        <br><hr>
+        <div  class="container1 align-items-center">
+                <div class="tabs">
+                    <div  style="margin-left: 300px;">
+                    <ul id="tabs-nav">
+
+                    <li><a   href="#tab1 #work">ALL</a></li>
+                    <li ><a href="#tab2  #work">BRAND</a></li>
+                    <li><a   href="#tab3 #work">DESIGN</a></li>
+                    <li ><a  href="#tab4 #work">GRAPHIC</a></li>
+                    </ul></div><br>
+                    <!-- END tabs-nav -->
+                    <div id="tabs-content">
+                    <div id="tab1" class="tab-content" style="align-items: center;">
+                        
+           
+                            <section class="row">
+                              
+                                <div class="col-md">
+                                    <marquee class="my" behavior="slide" direction="left " scrollamount="50" >
+                                        <div class="d-flex " style="position: absolute;text-align: center;">
+                                            <div class="t1">
+                                                    <b><p>Crearive Design<p>
+                                                        <p>Work description here<p></b>
+                                            </div>
+                                        </div>
+                                    
+                                        <img class="img2" src="img/s1.jpg" alt="Image 1" style="position: relative;">
+                                    </marquee>
+                                
+                                </div>
+                    
+                                <div class="col-md">
+                                    <marquee  class="my" behavior="slide" direction="left " scrollamount="50" >
+                                        <div class="d-flex " style="position: absolute;text-align: center;">
+                                            <div class="t1">
+                                                    <b><p>Crearive Design<p>
+                                                        <p>Work description here<p></b>
+                                            </div>
+                                        </div>
+                                    <img class="img2" src="img/s2.jpg" alt="Image 2" style="position: relative;">
+                                    
+                                </marquee>
+                                </div>
+                    
+                                <div class="col-md">
+                                    <marquee  class="my" behavior="slide" direction="left" scrollamount="50">
+                                        <div class="d-flex " style="position: absolute;text-align: center;">
+                                            <div class="t1">
+                                                    <b><p>Crearive Design<p>
+                                                        <p>Work description here<p></b>
+                                            </div>
+                                        </div>
+                                    <img class="img2" src="img/s3.jpg" alt="Image 3" style="position: relative;">
+                                   
+                                </marquee>
+                                </div></section>
+                                <section class="row">
+                                <div class="col-md">
+                                    <marquee  class="my" behavior="slide" direction="left" scrollamount="50">
+                                        <div class="d-flex " style="position: absolute;text-align: center;">
+                                            <div class="t1">
+                                                    <b><p>Crearive Design<p>
+                                                        <p>Work description here<p></b>
+                                            </div>
+                                        </div>
+                                    <img class="img2" src="img/s4.jpg" alt="Image 1" style="position: relative;">
+                                   
+                
+                                  
+                                </marquee>
+                                </div>
+                    
+                                <div class="col-md">
+                                    <marquee  class="my" behavior="slide" direction="left " scrollamount="50" >
+                                        <div class="d-flex " style="position: absolute;text-align: center;">
+                                            <div class="t1">
+                                                    <b><p>Crearive Design<p>
+                                                        <p>Work description here<p></b>
+                                            </div>
+                                        </div>
+                                    <img class="img2" src="img/s5.jpg" alt="Image 2" style="position: relative;">
+                                    
+                                </marquee>
+                                </div>
+                                
+                    
+                                <div class="col-md">
+                                    <marquee  class="my" behavior="slide" direction="left" scrollamount="50">
+                                        <div class="d-flex " style="position: absolute;text-align: center;">
+                                            <div class="t1">
+                                                    <b><p>Crearive Design<p>
+                                                        <p>Work description here<p></b>
+                                            </div>
+                                        </div>
+                                    <img class="img2" src="img/s6.jpg" alt="Image 3" style="position: relative;">
+                                   
+                                </marquee>
+                                
+                
+                           
+                            </section>
+                       
+                       
+                    </div>
+                    <div id="tab2" class="tab-content">
+                        <section class="row">
+                              
+                           
+                
+                            <div class="col-md">
+                                <marquee  class="my" behavior="slide" direction="left " scrollamount="50" >
+                                    <div class="d-flex " style="position: absolute;text-align: center;">
+                                        <div class="t1">
+                                                <b><p>Crearive Design<p>
+                                                    <p>Work description here<p></b>
+                                        </div>
+                                    </div>
+                                <img class="img2" src="img/s3.jpg" alt="Image 2" style="position: relative;">
+                                
+                            </marquee>
+                            </div>
+                
+                            <div class="col-md">
+                                <marquee  class="my" behavior="slide" direction="left" scrollamount="50">
+                                    <div class="d-flex " style="position: absolute;text-align: center;">
+                                        <div class="t1">
+                                                <b><p>Crearive Design<p>
+                                                    <p>Work description here<p></b>
+                                        </div>
+                                    </div>
+                                <img class="img2" src="img/s6.jpg" alt="Image 3" style="position: relative;">
+                               
+                            </marquee>
+                            </div>
+                            
+                        </section>
+                    </div>
+                    <div id="tab3" class="tab-content">
+                        <section class="row">
+                              
+                            <div class="col-md">
+                                <marquee class="my" behavior="slide" direction="left " scrollamount="50" >
+                                    <div class="d-flex " style="position: absolute;text-align: center;">
+                                        <div class="t1">
+                                                <b><p>Crearive Design<p>
+                                                    <p>Work description here<p></b>
+                                        </div>
+                                    </div>
+                                
+                                    <img class="img2" src="img/s1.jpg" alt="Image 1" style="position: relative;">
+                                </marquee>
+                            
+                            </div>
+                
+                            <div class="col-md">
+                                <marquee  class="my" behavior="slide" direction="left " scrollamount="50" >
+                                    <div class="d-flex " style="position: absolute;text-align: center;">
+                                        <div class="t1">
+                                                <b><p>Crearive Design<p>
+                                                    <p>Work description here<p></b>
+                                        </div>
+                                    </div>
+                                <img class="img2" src="img/s2.jpg" alt="Image 2" style="position: relative;">
+                                
+                            </marquee>
+                            </div>
+                
+                            <div class="col-md">
+                                <marquee  class="my" behavior="slide" direction="left" scrollamount="50">
+                                    <div class="d-flex " style="position: absolute;text-align: center;">
+                                        <div class="t1">
+                                                <b><p>Crearive Design<p>
+                                                    <p>Work description here<p></b>
+                                        </div>
+                                    </div>
+                                <img class="img2" src="img/s4.jpg" alt="Image 3" style="position: relative;">
+                               
+                            </marquee>
+                            </div></section>
+                    </div>
+                    <div id="tab4" class="tab-content">
+                    </section>
+                    <section class="row">
+                    <div class="col-md">
+                        <marquee  class="my" behavior="slide" direction="left" scrollamount="50">
+                            <div class="d-flex " style="position: absolute;text-align: center;">
+                                <div class="t1">
+                                        <b><p>Crearive Design<p>
+                                            <p>Work description here<p></b>
+                                </div>
+                            </div>
+                        <img class="img2" src="img/s4.jpg" alt="Image 1" style="position: relative;">
+                       
+    
+                      
+                    </marquee>
+                    </div>
+        
+                    <div class="col-md">
+                        <marquee  class="my" behavior="slide" direction="left " scrollamount="50" >
+                            <div class="d-flex " style="position: absolute;text-align: center;">
+                                <div class="t1">
+                                        <b><p>Crearive Design<p>
+                                            <p>Work description here<p></b>
+                                </div>
+                            </div>
+                        <img class="img2" src="img/s5.jpg" alt="Image 2" style="position: relative;">
+                        
+                    </marquee>
+                    </div>
+                    
+        
+                    <div class="col-md">
+                        <marquee  class="my" behavior="slide" direction="left" scrollamount="50">
+                            <div class="d-flex " style="position: absolute;text-align: center;">
+                                <div class="t1">
+                                        <b><p>Crearive Design<p>
+                                            <p>Work description here<p></b>
+                                </div>
+                            </div>
+                        <img class="img2" src="img/s6.jpg" alt="Image 3" style="position: relative;">
+                       
+                    </marquee>
+                    
+    
+               
+                </section>
+                    </div>
+                    </div>
+                    <!-- END tabs-content -->
+                </div>
+        </div>
+        </div>
+   <br><hr style="color: darkgray"><br>
+    <!-- WORKS END -->
+    <!-- BLOGS START -->
+    <br>
+   <center>
+    <h1 id="blog" style="color: white;"><b>MY BLOGS</b></h1></center>
+    <br>
+    
+    <section>
+        <div  class="container1 align-items-center">
+           
+            <section class="row">
+               
+                <div class="col-md">
+                    <marquee behavior="slide" direction="left" scrollamount="50">
+                    <img class="img1" src="img/blog3.jpg" alt="Image 1">
+                    <div class="text1"><b><h2>48 Best WordPress Themes</h2></b>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever</p>
+                       
+                        <a href="https://www.bing.com/search?pglt=43&q=free+blogs&cvid=50c534c3e2c54336a26db5c709fda3b5&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEAAYQDIGCAMQABhAMgYIBBAAGEAyBggFEAAYQDIGCAYQABhAMgYIBxAAGEAyBggIEAAYQNIBCDY3NzVqMGoxqAIAsAIA&FORM=ANSPA1&PC=U531">Read more....</a>
+
+                    </div>
+                </marquee>
+                </div>
+    
+                <div class="col-md">
+                    <marquee behavior="slide" direction="left " scrollamount="50" >
+                    <img class="img1" src="img/blog2.jpg" alt="Image 2">
+                    <div class="text1"><b><h2>Managing Their Own Websites</h2></b>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever</p>
+                        <p> text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever</p>
+                       
+                        <a href="https://www.bing.com/search?pglt=43&q=free+blogs&cvid=50c534c3e2c54336a26db5c709fda3b5&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEAAYQDIGCAMQABhAMgYIBBAAGEAyBggFEAAYQDIGCAYQABhAMgYIBxAAGEAyBggIEAAYQNIBCDY3NzVqMGoxqAIAsAIA&FORM=ANSPA1&PC=U531">Read more....</a>
+
+                    </div>
+                </marquee>
+                </div>
+    
+                <div class="col-md">
+                    <marquee behavior="slide" direction="left" scrollamount="50">
+                    <img class="img1" src="img/blog1.jpg" alt="Image 3">
+                    <div class="text1"><b><h2>Master These Awesome Skills</h2></b>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the dummy text ever</p>
+                       
+                        <a href="https://www.bing.com/search?pglt=43&q=free+blogs&cvid=50c534c3e2c54336a26db5c709fda3b5&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEAAYQDIGCAMQABhAMgYIBBAAGEAyBggFEAAYQDIGCAYQABhAMgYIBxAAGEAyBggIEAAYQNIBCDY3NzVqMGoxqAIAsAIA&FORM=ANSPA1&PC=U531">Read more....</a>
+
+                    </div>
+                </marquee>
+                </div>
+           
+            </section>
+       
+        </div>
+        <br>
+       
+    </section><br><hr style="color: darkgray"><br>
+     <!-- BLOGS END -->
+   <!-- CONTACT START -->
+    <section>
+        <div class="align-items-center" >
+            <div id="contact-form">
+                <div class="form-group">
+                    <h1 style="color: white; align-items: center;">Contact_Me</h1>
+                    <label for="name" style="color: white;">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="email"  style="color: white;">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="number"  style="color: white;">Number:</label>
+                    <input type="number" id="number" name="number" required>
+                </div>
+                <div class="form-group">
+                    <label for="number"  style="color: white; ">Message:</label>
+                    <textarea rows="4" cols="50" style="border-radius: 15px;">
+                       Type Message Here ... 
+                        </textarea>
+                </div>
+        
+                <div class="form-group">
+                    <button id="submit-button" type="submit">Submit</button>
+                </div>
+                
+            </div>
+
+        </div>
+    </section><br>
+    <hr style="color: black;">
+    <!-- CONTACT START -->
+<!-- FOOTER START -->
+<section>
+    <div id="footer" style="width: 100%; background-color: rgb(52, 50, 50);">
+        <div
+            style="color: aliceblue; margin: 0 auto; width: 90%; display: flex; align-items: center; justify-content: space-between; padding: 15px 0;">
+            <div>
+                <img src="img/logo.png" alt="Logo" class="logo1">
+            </div>
+
+            <div style="color: white; display: flex; align-items: center;">
+                <p style="margin-right: 10px;"> <img src="img/map-pin-off.svg" alt="phone">&nbsp;&nbsp;&nbsp;
+                    Ms Rajaram S/O Amirthalingam,Ahmedabad,Gujarat</p>
+               
+            </div>
+        </div>
+    </div>
+
+</section>
+ 
+    <div id="footer" style="width: 100%; background-color: rgb(52, 50, 50);">
+        <div style="color: aliceblue; margin: 0 auto; width: 90%; display: flex; align-items: center; justify-content: space-between; padding: 15px 0;">
+            <div>
+                <font face="Verdana" color="white" size="4">
+                    ©Copyright 2024 by Divyesh. All rights reserved.
+                </font>
+            </div>
+    
+            <div style="color: white; display: flex; align-items: center;">
+                <p style="margin-right: 10px;"> <img src="img/message-circle-code.svg" alt="phone"></img>
+                    | <img src="img/phone-call.svg" alt="whatsapp"></img>&nbsp;
+                    +91-9662312268</p>
+                <font face="arial" color="white" size="5">&nbsp;&nbsp;
+                    <a href="#header" style="text-decoration:none; color: white; border: dashed; border-color: gray;">
+                        <font face="Verdana" size="6">
+                            <b> &nbsp;&nbsp;UP☝</b>
+                        </font>
+                    </a>
+                </font>
+            </div>
+        </div>
+    </div>
+    
+    
+<!-- FOOTER START -->
+</body>
+</html>
